@@ -31,12 +31,6 @@ permalink: /blog/:year/:month/:day/:title/
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-rdiscount:
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-highlighter: pygments # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
 paginate_path: "posts/:num"  # Directory base for pagination URLs eg. /posts/2/
