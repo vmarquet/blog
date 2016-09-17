@@ -22,3 +22,10 @@ header h2 a:active {
     color: #AAAAAA;
     text-decoration: none;
 }
+
+@media only screen and (min-width: 550px) {
+    form fieldset input {
+        position: relative;
+        top: 4px;
+    }
+}

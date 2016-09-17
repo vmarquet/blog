@@ -5,10 +5,20 @@
     {% else %}
       <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
     {% endif %}
+
     {% unless page.meta == false %}
       <p class="meta">
-        {% include post/date.html %}{{ time }}<!-- doesn't work -->
-        {{ post.date | date: "%b %-d, %Y" }}
+        {% include post/date.html %}
+        {% if updated %}
+          {% if index %}
+            <time datetime="{{ time }}">{{ time | date: "%b %-d, %Y" }}</time>
+          {% else %}
+            <time datetime="{{ updated }}">Last update {{ updated | date: "%b %-d, %Y" }}</time>
+          {% endif %}
+        {% else %}
+          <time datetime="{{ time }}">{{ time | date: "%b %-d, %Y" }}</time>
+        {% endif %}
+
         {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
            | <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread"
              data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">Comments</a>
@@ -17,14 +27,9 @@
     {% endunless %}
   </header>
 {% endunless %}
+
 {% if index %}
-  <div class="entry-content">{{ content | excerpt }}</div>
-  {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
-  {% if excerpted == 'true' %}
-    <footer>
-      <a rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
-    </footer>
-  {% endif %}
+  <div class="entry-content"><p>{{ content | strip_html | truncatewords: 50 }}</p></div>
 {% else %}
-<div class="entry-content">{{ content }}</div>
+  <div class="entry-content">{{ content }}</div>
 {% endif %}

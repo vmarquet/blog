@@ -1,15 +1,22 @@
 ---
 layout: default
-single: true
 ---
 
 <div>
 <article class="hentry" role="article">
   {% include article.html %}
+
   <footer>
     <p class="meta">
       {% include post/author.html %}
-      {% include post/date.html %}{{ time }}{% if updated %} {{ updated }}{% endif %}
+
+      {% include post/date.html %}
+      {% if updated %}
+        <time datetime="{{ updated }}">Last update {{ updated | date: "%b %-d, %Y" }}</time>
+      {% else %}
+        <time datetime="{{ time }}">{{ time | date: "%b %-d, %Y" }}</time>
+      {% endif %}
+
       {% include post/categories.html %}
     </p>
     {% unless page.sharing == false %}
@@ -25,6 +32,7 @@ single: true
     </p>
   </footer>
 </article>
+
 {% if site.disqus_short_name and page.comments == true %}
   <section>
     <h1>Comments</h1>
@@ -32,8 +40,9 @@ single: true
   </section>
 {% endif %}
 </div>
+
 {% unless page.sidebar == false %}
-<aside class="sidebar">
-  {% include asides/recent_posts.html %}
-</aside>
+  <aside class="sidebar">
+    {% include asides/recent_posts.html %}
+  </aside>
 {% endunless %}
