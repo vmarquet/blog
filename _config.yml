@@ -31,7 +31,6 @@ permalink: /blog/:year/:month/:day/:title/
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: rdiscount
 rdiscount:
   extensions:
     - autolink
