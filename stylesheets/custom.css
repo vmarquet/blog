@@ -15,7 +15,7 @@ header h2 a:visited {
 
 header h2 a:hover {
     color: #AAAAAA;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 header h2 a:active {
