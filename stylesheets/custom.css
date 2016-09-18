@@ -33,3 +33,10 @@ header h2 a:active {
 header[role="banner"] {
     background-color: rgba(0,0,0,0);
 }
+
+canvas[id="canvas"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
