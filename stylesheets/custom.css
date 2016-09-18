@@ -29,3 +29,7 @@ header h2 a:active {
         top: 4px;
     }
 }
+
+header[role="banner"] {
+    background-color: rgba(0,0,0,0);
+}
