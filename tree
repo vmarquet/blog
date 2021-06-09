@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tree -I '_site|images|assets'
