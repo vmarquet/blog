@@ -1,0 +1,4 @@
+--ignore-dir=_site
+--ignore-dir=javascripts
+--ignore-dir=stylesheets
+--ignore-dir=.jekyll-cache
